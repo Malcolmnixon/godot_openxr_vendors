@@ -3,70 +3,74 @@ extends Node3D
 
 # Dictionary of expressions to blend-shapes available on the face model
 const _expressions := {
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_BROW_LOWERER_L : "browDownLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_BROW_LOWERER_R : "browDownRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_CHEEK_PUFF_L : "Cheek_Puff_Left",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_CHEEK_PUFF_R : "Cheek_Puff_Right",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_CHEEK_RAISER_L : "cheekSquintLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_CHEEK_RAISER_R : "cheekSquintRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_DIMPLER_L : "mouthDimpleLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_DIMPLER_R : "mouthDimpleRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_CLOSED_L : "eyeBlinkLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_CLOSED_R : "eyeBlinkRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_DOWN_L : "eyeLookDownLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_DOWN_R : "eyeLookDownRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_LEFT_L : "eyeLookOutLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_LEFT_R : "eyeLookInRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_RIGHT_L : "eyeLookInLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_RIGHT_R : "eyeLookOutRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_UP_L : "eyeLookUpLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_UP_R : "eyeLookUpRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_JAW_DROP : "jawOpen",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_JAW_SIDEWAYS_LEFT : "jawLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_JAW_SIDEWAYS_RIGHT : "jawRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_JAW_THRUST : "jawForward",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_CORNER_DEPRESSOR_L : "mouthFrownLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_CORNER_DEPRESSOR_R : "mouthFrownRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_CORNER_PULLER_L : "mouthSmileLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_CORNER_PULLER_R : "mouthSmileRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_PRESSOR_L : "mouthPressLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_PRESSOR_R : "mouthPressRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_STRETCHER_L : "mouthStretchLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_STRETCHER_R : "mouthStretchRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIPS_TOWARD : "mouthClose",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LOWER_LIP_DEPRESSOR_L : "mouthLowerDownLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LOWER_LIP_DEPRESSOR_R : "mouthLowerDownRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_MOUTH_LEFT : "mouthLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_MOUTH_RIGHT : "mouthRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_NOSE_WRINKLER_L : "noseSneerLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_NOSE_WRINKLER_R : "noseSneerRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_OUTER_BROW_RAISER_L : "browOuterUpLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_OUTER_BROW_RAISER_R : "browOuterUpRight",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_UPPER_LIP_RAISER_L : "mouthUpperUpLeft",
-	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_UPPER_LIP_RAISER_R : "mouthUpperUpRight",
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_BROW_LOWERER_L : XRFaceTrackingProvider.FT_BROW_DOWN_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_BROW_LOWERER_R : XRFaceTrackingProvider.FT_BROW_DOWN_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_CHEEK_PUFF_L : XRFaceTrackingProvider.FT_CHEEK_PUFF_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_CHEEK_PUFF_R : XRFaceTrackingProvider.FT_CHEEK_PUFF_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_CHEEK_RAISER_L : XRFaceTrackingProvider.FT_CHEEK_SQUINT_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_CHEEK_RAISER_R : XRFaceTrackingProvider.FT_CHEEK_SQUINT_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_CHEEK_SUCK_L : XRFaceTrackingProvider.FT_CHEEK_SUCK_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_CHEEK_SUCK_R : XRFaceTrackingProvider.FT_CHEEK_SUCK_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_CHIN_RAISER_B : XRFaceTrackingProvider.FT_MOUTH_RAISER_LOWER,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_CHIN_RAISER_T : XRFaceTrackingProvider.FT_MOUTH_RAISER_UPPER,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_DIMPLER_L : XRFaceTrackingProvider.FT_MOUTH_DIMPLE_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_DIMPLER_R : XRFaceTrackingProvider.FT_MOUTH_DIMPLE_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_CLOSED_L : XRFaceTrackingProvider.FT_EYE_CLOSED_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_CLOSED_R : XRFaceTrackingProvider.FT_EYE_CLOSED_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_DOWN_L : XRFaceTrackingProvider.FT_EYE_LOOK_DOWN_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_DOWN_R : XRFaceTrackingProvider.FT_EYE_LOOK_DOWN_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_LEFT_L : XRFaceTrackingProvider.FT_EYE_LOOK_OUT_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_LEFT_R : XRFaceTrackingProvider.FT_EYE_LOOK_IN_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_RIGHT_L : XRFaceTrackingProvider.FT_EYE_LOOK_IN_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_RIGHT_R : XRFaceTrackingProvider.FT_EYE_LOOK_OUT_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_UP_L : XRFaceTrackingProvider.FT_EYE_LOOK_UP_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_EYES_LOOK_UP_R : XRFaceTrackingProvider.FT_EYE_LOOK_UP_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_JAW_DROP : XRFaceTrackingProvider.FT_JAW_OPEN,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_JAW_SIDEWAYS_LEFT : XRFaceTrackingProvider.FT_JAW_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_JAW_SIDEWAYS_RIGHT : XRFaceTrackingProvider.FT_JAW_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_JAW_THRUST : XRFaceTrackingProvider.FT_JAW_FORWARD,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_CORNER_DEPRESSOR_L : XRFaceTrackingProvider.FT_MOUTH_FROWN_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_CORNER_DEPRESSOR_R : XRFaceTrackingProvider.FT_MOUTH_FROWN_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_CORNER_PULLER_L : XRFaceTrackingProvider.FT_MOUTH_SMILE_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_CORNER_PULLER_R : XRFaceTrackingProvider.FT_MOUTH_SMILE_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_FUNNELER_LB : XRFaceTrackingProvider.FT_LIP_FUNNEL_LOWER_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_FUNNELER_LT : XRFaceTrackingProvider.FT_LIP_FUNNEL_UPPER_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_FUNNELER_RB : XRFaceTrackingProvider.FT_LIP_FUNNEL_LOWER_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_FUNNELER_RT : XRFaceTrackingProvider.FT_LIP_FUNNEL_UPPER_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_PRESSOR_L : XRFaceTrackingProvider.FT_MOUTH_PRESS_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_PRESSOR_R : XRFaceTrackingProvider.FT_MOUTH_PRESS_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_STRETCHER_L : XRFaceTrackingProvider.FT_MOUTH_STRETCH_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_STRETCHER_R : XRFaceTrackingProvider.FT_MOUTH_STRETCH_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_SUCK_LB : XRFaceTrackingProvider.FT_LIP_SUCK_LOWER_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_SUCK_LT : XRFaceTrackingProvider.FT_LIP_SUCK_UPPER_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_SUCK_RB : XRFaceTrackingProvider.FT_LIP_SUCK_LOWER_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_SUCK_RT : XRFaceTrackingProvider.FT_LIP_SUCK_UPPER_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_TIGHTENER_L : XRFaceTrackingProvider.FT_MOUTH_TIGHTENER_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIP_TIGHTENER_R : XRFaceTrackingProvider.FT_MOUTH_TIGHTENER_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LIPS_TOWARD : XRFaceTrackingProvider.FT_MOUTH_CLOSED,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LOWER_LIP_DEPRESSOR_L : XRFaceTrackingProvider.FT_MOUTH_LOWER_DOWN_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_LOWER_LIP_DEPRESSOR_R : XRFaceTrackingProvider.FT_MOUTH_LOWER_DOWN_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_MOUTH_LEFT : XRFaceTrackingProvider.FT_MOUTH_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_MOUTH_RIGHT : XRFaceTrackingProvider.FT_MOUTH_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_NOSE_WRINKLER_L : XRFaceTrackingProvider.FT_NOSE_SNEER_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_NOSE_WRINKLER_R : XRFaceTrackingProvider.FT_NOSE_SNEER_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_OUTER_BROW_RAISER_L : XRFaceTrackingProvider.FT_BROW_OUTER_UP_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_OUTER_BROW_RAISER_R : XRFaceTrackingProvider.FT_BROW_OUTER_UP_RIGHT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_UPPER_LIP_RAISER_L : XRFaceTrackingProvider.FT_MOUTH_UPPER_UP_LEFT,
+	OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_UPPER_LIP_RAISER_R : XRFaceTrackingProvider.FT_MOUTH_UPPER_UP_RIGHT,
 }
 
 
 # Face mesh
 @onready var face : MeshInstance3D = $Face/Face
 
-# Blend-shapes by expression
-var _blend_shapes : Array[int] = []
+# Face tracking provider
+var _provider := XRFaceTrackingProvider.new()
 
 
 func _ready() -> void:
-	# Build a table of blend-shapes by expression
-	_blend_shapes.resize(OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_COUNT)
-	_blend_shapes.fill(-1)
-	for expression in OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_COUNT:
-		# Skip if there is no mapping to blend-shape name
-		if not _expressions.has(expression):
-			continue
-
-		# Find and save the blend-shape
-		var blend_shape_name : String = _expressions[expression]
-		var blend_shape := face.find_blend_shape_by_name(blend_shape_name)
-		_blend_shapes[expression] = blend_shape
+	# Register the face tracking provider
+	XRServer.add_face_tracking_provider("/user/head", _provider)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -76,12 +80,6 @@ func _process(_delta : float) -> void:
 	if weights.is_empty():
 		return
 
-	# Set the blend-shapes to use the weights
-	for expression in OpenXRFbFaceTrackingExtensionWrapper.EXPRESSION_COUNT:
-		# Find the blend-shape
-		var blend_shape := _blend_shapes[expression]
-		if blend_shape < 0:
-			continue
-
-		# Set the blend-shape value
-		face.set_blend_shape_value(blend_shape, weights[expression])
+	# Populate the provider
+	for i in _expressions:
+		_provider.set_blend_shape(_expressions[i], weights[i])
