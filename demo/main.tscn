@@ -101,7 +101,7 @@ script = ExtResource("4_fsql8")
 
 [node name="Face" parent="Floor/TrackedFace" instance=ExtResource("4_wrwst")]
 
-[node name="XRFaceTracker" type="XRFaceTracker3D" parent="Floor/TrackedFace"]
+[node name="XRFaceModifier3D" type="XRFaceModifier3D" parent="Floor/TrackedFace"]
 target = NodePath("../Face/Face")
 
 [connection signal="button_pressed" from="XROrigin3D/LeftHand" to="." method="_on_left_hand_button_pressed"]
